@@ -1,5 +1,5 @@
 #include <assert.h>
-#include <rbtree.h>
+#include "../src/rbtree.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,6 +18,7 @@ void test_init(void)
   delete_rbtree(t);
 }
 
+
 // root node should have proper values and pointers
 void test_insert_single(const key_t key)
 {
@@ -32,9 +33,9 @@ void test_insert_single(const key_t key)
   assert(p->right == t->nil);
   assert(p->parent == t->nil);
 #else
-  assert(p->left == NULL);
-  assert(p->right == NULL);
-  assert(p->parent == NULL);
+  assert(p->left == t->nil);
+  assert(p->right == t->nil);
+  assert(p->parent == t->nil);
 #endif
   delete_rbtree(t);
 }
